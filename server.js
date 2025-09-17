@@ -28,7 +28,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Enable CORS
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'https://massager-v992.onrender.com',
+  origin: process.env.FRONTEND_URL || 'https://massa4.onrender.com',
   credentials: true
 }));
 
@@ -43,7 +43,7 @@ const limiter = rateLimit({
 app.use(limiter);
 
 // Serve static files from the public directory
-app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'public')));
 
 // Mount routers
 app.use('/api/auth', auth);
@@ -53,7 +53,7 @@ app.use('/api/payments', payments);
 app.use('/api/ratings', ratings);
 
 // Serve the frontend for all other routes
-app.get('*', (req, res) => {
+//app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
